@@ -17,7 +17,7 @@ typedef struct
     int id;
     char nome[100];
     char local[100];
-    char data[11]; // formato: DD/MM/YYYY
+    char data[11];
     float custo_organizacao;
     int max_ingressos;
     float valor_entrada_basica;
