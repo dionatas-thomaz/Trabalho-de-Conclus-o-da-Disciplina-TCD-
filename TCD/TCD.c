@@ -100,7 +100,7 @@ int main() {
         printf("\n1. Cadastrar evento\n2. Pesquisar evento\n3. Atualizar vendas\n4. Calcular lucro\n0. Sair\nEscolha uma opcao: ");
         scanf("%d", &opcao);
 
-        if (opcao == 1) {
+        if (opcao == 1) {//1. Cadastrar evento
             Evento evento;
             printf("Digite o identificador do evento ");
             scanf("%d", &evento.id);
@@ -187,7 +187,7 @@ int main() {
             }
         }
 
-        else if (opcao == 2) {
+        else if (opcao == 2) {//2. Pesquisar evento
             int id;
             printf("Digite o identificador do evento: ");
             scanf("%d", &id);
@@ -219,7 +219,7 @@ int main() {
             }
         }
 
-               else if (opcao == 3) {
+               else if (opcao == 3) {//3. Atualizar vendas
             int id;
             printf("Digite o identificador do evento: ");
             scanf("%d", &id);
@@ -252,7 +252,7 @@ int main() {
             }
         }
 
-        else if (opcao == 4) {
+        else if (opcao == 4) {//4. Calcular lucro
             int id;
             printf("Digite o identificador do evento: ");
             scanf("%d", &id);
