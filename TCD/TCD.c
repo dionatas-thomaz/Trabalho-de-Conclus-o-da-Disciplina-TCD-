@@ -5,13 +5,15 @@
 #define MAX_EVENTOS 100
 #define FILENAME "eventos.txt"
 
-typedef struct {
+typedef struct
+{
     char nome[50];
     float teor_alcoolico;
     float valor_unitario;
 } Bebida;
 
-typedef struct {
+typedef struct
+{
     int id;
     char nome[100];
     char local[100];
@@ -31,15 +33,17 @@ typedef struct {
 Evento eventos[MAX_EVENTOS];
 int total_eventos = 0;
 
-int evento_existe(int id) {
-    for (int i = 0; i < total_eventos; i++) {
-        if (eventos[i].id == id) {
-            return 1; 
+int evento_existe(int id)
+{
+    for (int i = 0; i < total_eventos; i++)
+    {
+        if (eventos[i].id == id)
+        {
+            return 1;
         }
     }
-    return 0; 
+    return 0;
 }
-
 
 void carregar_eventos()
 {
@@ -91,20 +95,20 @@ void carregar_eventos()
     printf("Dados carregados\n");
 }
 
-int main() {
-     int opcao;
+int main(){
+    int opcao;
     FILE *file = fopen(FILENAME, "r");
     carregar_eventos();
-   
-    do {
-        printf("\n1. Cadastrar evento\n2. Pesquisar evento\n3. Atualizar vendas\n4. Calcular lucro\n0. Sair\nEscolha uma opcao: ");
+    Evento evento;
+    do
+    {
+       printf("\n1. Cadastrar evento\n2. Pesquisar evento\n3. Atualizar vendas\n4. Calcular lucro\n0. Sair\nEscolha uma opcao: ");
         scanf("%d", &opcao);
 
-        if (opcao == 1) {//1. Cadastrar evento
+        if (opcao == 1) {
             Evento evento;
             printf("Digite o identificador do evento ");
             scanf("%d", &evento.id);
-            }
             if (evento_existe(evento.id)) {
             printf("Evento já cadastrado!\n");
             continue;
@@ -134,11 +138,11 @@ int main() {
 
             if (evento.open_bar) {
                 for (int i = 0; i < 3; i++) {
-                    printf("Nome da bebida %d: ", i + 1);
+                    printf("Nome da bebida %d:",i+1);
                     scanf(" %[^\n]", evento.bebidas[i].nome);
-                    printf("Teor alcoolico da bebida %d: ", i + 1);
+                    printf("Teor alcoolico da bebida %d:",+1);
                     scanf("%f", &evento.bebidas[i].teor_alcoolico);
-                    printf("Valor da bebida %d: ", i + 1);
+                    printf("Valor da bebida %d: ",i+1);
                     scanf("%f", &evento.bebidas[i].valor_unitario);
                     evento.valor_entrada_basica += 1.75 * evento.bebidas[i].valor_unitario;
                 }
@@ -186,7 +190,6 @@ int main() {
                 printf("Erro ao abrir o arquivo para escrita.\n");
             }
         }
-
         else if (opcao == 2) {//2. Pesquisar evento
             int id;
             printf("Digite o identificador do evento: ");
@@ -218,8 +221,7 @@ int main() {
                 printf("Evento nao encontrado.\n");
             }
         }
-
-               else if (opcao == 3) {//3. Atualizar vendas
+        else if (opcao == 3) {//3. Atualizar vendas
             int id;
             printf("Digite o identificador do evento: ");
             scanf("%d", &id);
@@ -251,7 +253,6 @@ int main() {
                 printf("Evento nao encontrado.\n");
             }
         }
-
         else if (opcao == 4) {//4. Calcular lucro
             int id;
             printf("Digite o identificador do evento: ");
@@ -277,9 +278,8 @@ int main() {
             }
         }
 
-    } while (opcao != 0);
+    }while (opcao != 0);
 
-    printf("fim:/\n");
-    return 0;
+  printf("fim:/\n");
+  return 0;
 }
-
